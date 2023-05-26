@@ -1,0 +1,12 @@
+﻿@model double?
+@if (!Model.HasValue)
+{
+    <input type="number" id="@ViewData.TemplateInfo.GetFullHtmlFieldId("")"
+           name="@ViewData.TemplateInfo.GetFullHtmlFieldName("")" />
+}
+else
+{
+    <input type="number" value="@Model.Value.ToString("yyyy-MM-dd")"
+           id="@ViewData.TemplateInfo.GetFullHtmlFieldId("")"
+           name="@ViewData.TemplateInfo.GetFullHtmlFieldName("")" />
+}

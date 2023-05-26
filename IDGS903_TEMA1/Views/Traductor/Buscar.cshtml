@@ -1,0 +1,47 @@
+﻿@model IDGS903_TEMA1.Models.Traductor
+
+@{
+    ViewBag.Title = "Buscar";
+}
+
+@Html.ActionLink("Regresar a agregar", "Registrar", new { @class = "btn btn-info" })
+
+<h2>Buscar</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-group">
+    @Html.Label("Palabra a traducir", new { htmlAttributes = new { @class = "form-label" } })
+    @Html.EditorFor(model => model.busqueda, new { htmlAttributes = new { @class = "form-control" } })
+</div>
+    <br />
+    <div>
+        <label class="control-label">Idioma a buscar:</label>
+        <div class="row">
+            <div class="col-3">
+                @Html.Label("Ingles")
+                @Html.RadioButton("idioma", "Ing", true)
+            </div>
+            <div class="col-3">
+                @Html.Label("Español")
+                @Html.RadioButton("idioma", "Esp")
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+<br />
+<div>
+    @if(ViewBag.Res != null)
+     {
+        <h4>Resultado: @ViewBag.Res</h4>
+     }
+</div>
+
